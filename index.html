@@ -84,15 +84,13 @@ objective of creating the most complete and accurate listing of burials at Whroo
 
 
 <!-- History -->
+<div id="history" class="w3-container w3-center w3-light-gray w3-padding-64 modern-history-section">
 
-<div id="history" class="w3-container w3-center w3-light-gray w3-padding-64">
+  <h1 class="modern-title">HISTORY</h1>
 
-<h1 class="w3-text-black w3-xxxlarge w3-center font-family: Arial, Helvetica, sans-serif">HISTORY</h1>
-
-
-
-<section>
-<p>Gold was discovered near here in late 1853. The cemetery was not formally reserved until 21 August, 1860, with almost five acres set aside, only the one acre ever fenced and used. Some burials between 1853 and 1860 were on this land.
+  <div class="modern-history-content">
+    <section>
+    <p>Gold was discovered near here in late 1853. The cemetery was not formally reserved until 21 August, 1860, with almost five acres set aside, only the one acre ever fenced and used. Some burials between 1853 and 1860 were on this land.
 </p><p>
 Was it the only site used for burials? Multiple reports in The McIvor News, The McIvor Times and Goulburn Advertiser and the Waranga Chronicle during the 1860s and 1870s provide a clue, but no proof. References are made to gold-seekers at Cemetery Gully, Cemetery Lead, Old Graveyard Lead, the old Cemetery lead, as part of the Graveyard Rush, which brought heightened activity from July to September, 1862.
 </p><p>
@@ -108,8 +106,10 @@ Early trustee John Lewis, of Balaclava mine fame, donated 150 numbered iron mark
 </p><p>
 1887 was a grim year, burying 14 children and 8 adults. 1869 and 1875 both saw 18 burials.
 </p>
-<p id="historyParagraph" style="display: none;">
-Few interments arose after 1940, meaning that revenue fell. In some years there were no burials. Late last century cemetery responsibility fell to Waranga Shire, then briefly early this century to Campaspe Shire, before appointed trustees again accepted responsibility.
+
+      <div id="historyParagraph" class="modern-history-extra" aria-expanded="false">
+        <p>
+         Few interments arose after 1940, meaning that revenue fell. In some years there were no burials. Late last century cemetery responsibility fell to Waranga Shire, then briefly early this century to Campaspe Shire, before appointed trustees again accepted responsibility.
 <br /><br />
 Here lives are commemorated, deaths are recorded, family history is linked, and memories are made tangible. However, in time no visitor will truly personally remember anyone buried here. The last official and formal funeral farewell was given to Mrs Mary LeRoy in 1971, aged 89.
 <br /><br />
@@ -247,11 +247,16 @@ On the plaque, recorded buried on 16 March, 1871, is an unknown person aged abou
 <br /><br />
 The verdict reported was simply Found dead. Sadly no clue to his name has been found.
 </p>
-<button onclick="toggleParagraph()">Read More</button>
-	
-<!--<embed type="text/html" src="whroo history.htm", width="100%" height="2500">-->
+      </div>
 
-</section>
+      <button id="toggleHistoryBtn" class="modern-toggle-btn" aria-controls="historyParagraph" aria-expanded="false">Read More</button>
+    </section>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -1012,9 +1017,90 @@ font-size:1em;
 
 </p>
 
+	<style>
+/* Modern history section styling */
+.modern-history-section {
+  background: #f5f6fa;
+  border-radius: 12px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.06);
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding: 48px 8vw;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modern-title {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  color: #22223b;
+  margin-bottom: 24px;
+}
+.modern-history-content {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 1.18rem;
+  color: #2d3142;
+  text-align: left;
+  max-width: 820px;
+  margin: auto;
+  line-height: 1.65;
+}
+.modern-history-content p {
+  margin-bottom: 18px;
+}
+.modern-history-extra {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.7s cubic-bezier(.4,0,.2,1), opacity 0.5s;
+  will-change: max-height, opacity;
+}
+.modern-history-extra.expanded {
+  max-height: 2500px; /* Large enough for content */
+  opacity: 1;
+  transition: max-height 1s cubic-bezier(.4,0,.2,1), opacity 0.7s;
+  margin-top: 10px;
+}
+.modern-toggle-btn {
+  display: inline-block;
+  background: #3246a8;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1.06rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(50,70,168,0.06);
+  cursor: pointer;
+  margin-top: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.modern-toggle-btn:hover, .modern-toggle-btn:focus {
+  background: #22223b;
+  color: #fff;
+  outline: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('toggleHistoryBtn');
+  var para = document.getElementById('historyParagraph');
+  btn.addEventListener('click', function() {
+    var expanded = para.classList.toggle('expanded');
+    btn.textContent = expanded ? 'Show Less' : 'Read More';
+    btn.setAttribute('aria-expanded', expanded);
+    para.setAttribute('aria-expanded', expanded);
+  });
+});
+</script>
 </body>
 
 </html>
+
 
 
 
