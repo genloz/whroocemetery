@@ -1052,10 +1052,11 @@ font-size:1em;
 }
 .modern-history-extra {
   max-height: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   opacity: 0;
   transition: max-height 0.7s cubic-bezier(.4,0,.2,1), opacity 0.5s;
   will-change: max-height, opacity;
+  overflow-y: auto;   
 }
 .modern-history-extra.expanded {
   max-height: 2500px; /* Large enough for content */
@@ -1100,18 +1101,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
