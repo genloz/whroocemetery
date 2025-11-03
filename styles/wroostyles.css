@@ -5,7 +5,11 @@ div.scroll-container {
   padding: 10px;
   caption-side: bottom;
   font-size: large;
-
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-y: auto;   
+  box-sizing: border-box;
 }
 
 div.scroll-container img {
