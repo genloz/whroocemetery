@@ -259,25 +259,27 @@ The verdict reported was simply Found dead. Sadly no clue to his name has been f
 <!-- photos -->
 
 
-<div class="scroll-container figcaption=bottomleft">
+<div class="photo-gallery">
+	<div class="gallery-item"><img src="images/Whroo cemetery morning sunshine.jpg" alt="Whroo Cemetery morning sunshine"></div>
+	<div class="gallery-item"><img src="images/Whroo cemetery timber tribute.jpg" alt="Whroo Cemetery timber tribute"></div>
+	<div class="gallery-item"><img src="images/WilliamIrvine.jpg" alt="William Irvine"></div>
+	<!-- <div class="gallery-item"><img src="images/Baud grave II.jpg" alt="Baud grave II"></div> -->
+	<div class="gallery-item"><img src="images/Whroo Image 050.jpg" alt="Whroo Image 050"></div>
+	<div class="gallery-item"><img src="images/Whroo Image 112.jpg" alt="Whroo Image 112 Final"></div>
+	<div class="gallery-item"><img src="images/Whroo cemetery cross.jpg" alt="Whroo Cemetery cross"></div>
+	<div class="gallery-item"><img src="images/Whroo early morning.jpg" alt="Whroo early morning"></div>
+	<div class="gallery-item"><img src="images/Whroo early morning 2.jpg" alt="Whroo early morning 2"></div>
+	<div class="gallery-item"><img src="images/Whroo early morning 3.jpg" alt="Whroo early morning 3"></div>
+	<div class="gallery-item"><img src="images/Whroo extra pic 1.jpg" alt="Whroo extra pic 1"></div>
+	<div class="gallery-item"><img src="images/Whroo extra pic 2.jpg" alt="Whroo extra pic 2"></div>
+	<div class="gallery-item"><img src="images/Whroo extra pic 5.jpg" alt="Whroo extra pic 5"></div>
+</div>
 
-	<img src="images/Whroo cemetery morning sunshine.jpg" alt="Whroo Cemetery morning sunshine", width="600", height="400">
-	<img src="images/Whroo cemetery timber tribute.jpg" alt="Whroo Cemetery timber tribute", width="250", height="400">
-	<img src="images/WilliamIrvine.jpg" alt="William Irvine", height="400">
-	<!-- <img src="images/Baud grave II.jpg" alt="Baud grave II", width=0250", height="400"> -->
-	<img src="images/Whroo Image 050.jpg" alt="Whroo Image 050", width="400", height="400">
-	<img src="images/Whroo Image 112.jpg" alt="Whroo Image 112 Final", width="600", height="400">
-	<img src="images/Whroo cemetery cross.jpg" alt="Whroo Cemetery cross", width="400", height="400"
-	<img src="images/Whroo early morning.jpg" alt="Whroo early morning", width="600", height="400">
-	<img src="images/Whroo early morning 2.jpg" alt="Whroo early morning", width="600", height="400">
-	<img src="images/Whroo early morning 3.jpg" alt="Whroo early morning", width="600", height="400">
-	<img src="images/Whroo extra pic 1.jpg" alt="Whroo early morning", height="400">
-    <img src="images/Whroo extra pic 2.jpg" alt="Whroo early morning", height="400">
-	<img src="images/Whroo extra pic 5.jpg" alt="Whroo early morning", height="400">
-
-	
-
-		
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+	<span class="lightbox-close">&times;</span>
+	<img class="lightbox-content" id="lightbox-img">
+	<div class="lightbox-caption"></div>
 </div>
 
 	
@@ -801,7 +803,7 @@ font-size:1em;
 }
 </style>  
      
-<ul>
+<ul class="pdf-list">
 
 		<li><a href="People/Ah Cheong Luke May 1902.pdf">Ah, Cheong Luke (May 1902)</a><li>
 		<li><a href="People/Ah Pow August 1874 rev.pdf">Ah, Pow (August 1874)</a><li>
@@ -1103,23 +1105,41 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.setAttribute('aria-expanded', expanded);
     para.setAttribute('aria-expanded', expanded);
   });
+  
+  // Photo Gallery Lightbox
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var captionText = document.querySelector('.lightbox-caption');
+  var galleryItems = document.querySelectorAll('.gallery-item img');
+  
+  galleryItems.forEach(function(img) {
+    img.addEventListener('click', function() {
+      lightbox.style.display = 'block';
+      lightboxImg.src = this.src;
+      captionText.textContent = this.alt;
+    });
+  });
+  
+  // Close lightbox
+  document.querySelector('.lightbox-close').addEventListener('click', function() {
+    lightbox.style.display = 'none';
+  });
+  
+  // Close lightbox when clicking outside the image
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+  
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.style.display === 'block') {
+      lightbox.style.display = 'none';
+    }
+  });
 });
 </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
