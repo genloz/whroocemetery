@@ -15,10 +15,11 @@ div.scroll-container img {
 ul.pdf-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
-  padding: 0;
+  gap: 0.25rem;
+  padding: 1rem;
   list-style: none;
-  justify-items: start;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* 2 columns on tablets */
@@ -28,16 +29,16 @@ ul.pdf-list {
   }
 }
 
-/* 4 columns on laptop/desktop screens */
+/* 3 columns on laptop/desktop screens */
 @media (min-width: 1024px) {
   ul.pdf-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 ul.pdf-list li {
   margin: 0;
-  padding: 0.25rem;
+  padding: 0.15rem;
   text-align: left;
 }
 
