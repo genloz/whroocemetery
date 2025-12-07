@@ -18,6 +18,7 @@ ul.pdf-list {
   gap: 0.5rem;
   padding: 0;
   list-style: none;
+  justify-items: start;
 }
 
 /* 2 columns on tablets */
@@ -27,7 +28,7 @@ ul.pdf-list {
   }
 }
 
-/* 4 columns on large screens */
+/* 4 columns on laptop/desktop screens */
 @media (min-width: 1024px) {
   ul.pdf-list {
     grid-template-columns: repeat(4, 1fr);
@@ -37,6 +38,7 @@ ul.pdf-list {
 ul.pdf-list li {
   margin: 0;
   padding: 0.25rem;
+  text-align: left;
 }
 
 /* Photo Gallery */
